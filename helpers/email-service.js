@@ -325,6 +325,46 @@ export const sendWelcomeEmail = async (email, name) => {
 };
 
 // =========================================
+// RESTAURANT ASSIGNMENT EMAIL
+// =========================================
+export const sendRestaurantAssignmentEmail = async (email, name, restaurantName) => {
+
+  try {
+    const html = createEmailTemplate({
+      title: 'Asignación a restaurante',
+      subtitle: 'Has sido asignado como administrador de un restaurante.',
+
+      content: `
+        <p>
+          Hola <strong>${name}</strong>,
+        </p>
+
+        <p>
+          Has sido asignado como administrador del restaurante
+          <strong>${restaurantName}</strong>.
+        </p>
+
+        <p>
+          Ahora puedes gestionar los menús, pedidos y
+          configuraciones del restaurante desde tu panel.
+        </p>
+      `,
+    });
+
+    await sendEmail({
+      to: email,
+      subject: `Asignado a ${restaurantName} | Kinal Banc`,
+      html,
+    });
+
+    console.log('Restaurant assignment email sent');
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
+
+// =========================================
 // PASSWORD CHANGED EMAIL
 // =========================================
 export const sendPasswordChangedEmail = async (email, name) => {
