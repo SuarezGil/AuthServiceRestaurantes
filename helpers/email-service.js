@@ -1,18 +1,150 @@
 import { config } from '../configs/config.js';
-import fs from 'fs';
-import path from 'path';
-import { fileURLToPath } from 'url';
 
-// =========================================
-// LOAD CSS
-// =========================================
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
-const emailStyles = fs.readFileSync(
-  path.join(__dirname, '../styles/emailStyles.css'),
-  'utf8'
-);
+const emailStyles = `
+  .email-wrapper {
+    background-color: #f4f4f4;
+    padding: 40px 20px;
+  }
+  .email-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  .email-header {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    padding: 32px;
+    text-align: center;
+  }
+  .logo {
+    font-size: 28px;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 2px;
+  }
+  .logo span {
+    color: #f0c040;
+  }
+  .logo-line {
+    height: 3px;
+    width: 60px;
+    background: #f0c040;
+    margin: 12px auto 0;
+    border-radius: 2px;
+  }
+  .email-hero {
+    padding: 32px 32px 0;
+    text-align: center;
+  }
+  .email-title {
+    font-size: 24px;
+    color: #1a1a2e;
+    margin: 0 0 8px;
+  }
+  .email-subtitle {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+  }
+  .email-content {
+    padding: 24px 32px 32px;
+  }
+  .content-card {
+    background: #f9f9f9;
+    border-radius: 8px;
+    padding: 24px;
+    border: 1px solid #eee;
+  }
+  .content-text {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #333;
+  }
+  .content-text p {
+    margin: 0 0 12px;
+  }
+  .email-button {
+    display: inline-block;
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    color: #ffffff !important;
+    text-decoration: none;
+    padding: 14px 36px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 600;
+    margin-top: 16px;
+  }
+  .email-footer {
+    padding: 0 32px 32px;
+  }
+  .footer-divider {
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+  }
+  .footer-text {
+    font-size: 12px;
+    color: #999;
+    text-align: center;
+    margin: 0;
+    line-height: 1.5;
+  }
+  .url-box {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px 14px;
+    font-size: 12px;
+    color: #555;
+    word-break: break-all;
+    margin: 8px 0;
+  }
+  .code-box {
+    background: #fff;
+    border: 2px dashed #f0c040;
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+    margin: 12px 0;
+  }
+  .code-box-label {
+    font-size: 12px;
+    color: #888;
+    margin: 0 0 8px;
+  }
+  .code-box-value {
+    font-family: 'Courier New', monospace;
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1a2e;
+    letter-spacing: 2px;
+    user-select: all;
+  }
+  .code-box-hint {
+    font-size: 11px;
+    color: #aaa;
+    margin: 8px 0 0;
+  }
+  .alert-box {
+    background: #fff3f3;
+    border: 1px solid #ffcdd2;
+    border-radius: 6px;
+    padding: 14px;
+    margin: 12px 0;
+    font-size: 13px;
+    color: #b71c1c;
+  }
+  .feature-list {
+    padding-left: 20px;
+    margin: 12px 0;
+  }
+  .feature-list li {
+    margin-bottom: 6px;
+    font-size: 14px;
+    color: #333;
+  }
+`;
 
 // =========================================
 // EMAIL SENDER (Brevo HTTP API)
