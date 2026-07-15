@@ -14,7 +14,7 @@ const emailStyles = `
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   }
   .email-header {
-    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    background: linear-gradient(135deg, #e65100, #ff8f00);
     padding: 32px;
     text-align: center;
   }
@@ -25,12 +25,12 @@ const emailStyles = `
     letter-spacing: 2px;
   }
   .logo span {
-    color: #f0c040;
+    color: #ffcc02;
   }
   .logo-line {
     height: 3px;
     width: 60px;
-    background: #f0c040;
+    background: #ff8f00;
     margin: 12px auto 0;
     border-radius: 2px;
   }
@@ -40,7 +40,7 @@ const emailStyles = `
   }
   .email-title {
     font-size: 24px;
-    color: #1a1a2e;
+    color: #e65100;
     margin: 0 0 8px;
   }
   .email-subtitle {
@@ -67,7 +67,7 @@ const emailStyles = `
   }
   .email-button {
     display: inline-block;
-    background: linear-gradient(135deg, #1a1a2e, #16213e);
+    background: linear-gradient(135deg, #e65100, #ff8f00);
     color: #ffffff !important;
     text-decoration: none;
     padding: 14px 36px;
@@ -102,7 +102,7 @@ const emailStyles = `
   }
   .code-box {
     background: #fff;
-    border: 2px dashed #f0c040;
+    border: 2px dashed #ff8f00;
     border-radius: 8px;
     padding: 16px;
     text-align: center;
@@ -117,7 +117,7 @@ const emailStyles = `
     font-family: 'Courier New', monospace;
     font-size: 18px;
     font-weight: 700;
-    color: #1a1a2e;
+    color: #e65100;
     letter-spacing: 2px;
     user-select: all;
   }
@@ -215,7 +215,7 @@ const createEmailTemplate = ({
         <div class="email-header">
 
           <div class="logo">
-            KINAL <span>BANC</span>
+            Restaurantes<span>FiveFriends</span>
           </div>
 
           <div class="logo-line"></div>
@@ -267,10 +267,10 @@ const createEmailTemplate = ({
           <div class="footer-divider">
 
             <p class="footer-text">
-              Este es un correo automático de Kinal Banc.
+              Este es un correo automático de RestaurantesFiveFriends.
               <br/>
               Nunca compartas tus credenciales ni códigos
-              de verificación.
+              de verificación con nadie.
             </p>
 
           </div>
@@ -300,7 +300,7 @@ export const sendVerificationEmail = async (email, name, verificationToken) => {
 
     const html = createEmailTemplate({
       title: 'Verifica tu correo',
-      subtitle: 'Protegemos tu cuenta con verificación segura.',
+      subtitle: 'Protegemos tu cuenta de RestaurantesFiveFriends con verificación segura.',
 
       content: `
         <p>
@@ -308,7 +308,7 @@ export const sendVerificationEmail = async (email, name, verificationToken) => {
         </p>
 
         <p>
-          Gracias por registrarte en Kinal Banc.
+          Gracias por registrarte en RestaurantesFiveFriends.
           Para activar tu cuenta necesitamos
           verificar tu correo electrónico.
         </p>
@@ -332,7 +332,7 @@ export const sendVerificationEmail = async (email, name, verificationToken) => {
 
     await sendEmail({
       to: email,
-      subject: 'Verifica tu cuenta | Kinal Banc',
+      subject: 'Verifica tu cuenta | RestaurantesFiveFriends',
       html,
     });
 
@@ -359,7 +359,7 @@ export const sendPasswordResetEmail = async (email, name, resetToken) => {
     const html = createEmailTemplate({
       title: 'Restablece tu contraseña',
 
-      subtitle: 'Recibimos una solicitud para cambiar tus credenciales.',
+      subtitle: 'Recibimos una solicitud para cambiar tu contraseña de RestaurantesFiveFriends.',
 
       content: `
         <p>
@@ -368,7 +368,7 @@ export const sendPasswordResetEmail = async (email, name, resetToken) => {
 
         <p>
           Recibimos una solicitud para
-          restablecer tu contraseña.
+          restablecer la contraseña de tu cuenta en RestaurantesFiveFriends.
         </p>
 
         <p>
@@ -399,7 +399,7 @@ export const sendPasswordResetEmail = async (email, name, resetToken) => {
 
     await sendEmail({
       to: email,
-      subject: 'Restablecimiento de contraseña',
+      subject: 'Restablece tu contraseña | RestaurantesFiveFriends',
       html,
     });
 
@@ -417,7 +417,7 @@ export const sendWelcomeEmail = async (email, name) => {
 
   try {
     const html = createEmailTemplate({
-      title: 'Bienvenido a Kinal Banc',
+      title: 'Bienvenido a RestaurantesFiveFriends',
 
       subtitle: 'Tu cuenta ha sido verificada correctamente.',
 
@@ -431,10 +431,10 @@ export const sendWelcomeEmail = async (email, name) => {
         </p>
 
         <ul class="feature-list">
-          <li>Transferencias seguras</li>
-          <li>Control de movimientos</li>
-          <li>Gestión de cuentas</li>
-          <li>Seguridad avanzada</li>
+          <li>Gestión de menús digitales</li>
+          <li>Control de pedidos en tiempo real</li>
+          <li>Administración de restaurantes</li>
+          <li>Soporte dedicado</li>
         </ul>
 
         <p>
@@ -445,7 +445,7 @@ export const sendWelcomeEmail = async (email, name) => {
 
     await sendEmail({
       to: email,
-      subject: 'Bienvenido a Kinal Banc',
+      subject: 'Bienvenido a RestaurantesFiveFriends',
       html,
     });
 
@@ -485,7 +485,7 @@ export const sendRestaurantAssignmentEmail = async (email, name, restaurantName)
 
     await sendEmail({
       to: email,
-      subject: `Asignado a ${restaurantName} | Kinal Banc`,
+      subject: `Asignado a ${restaurantName} | RestaurantesFiveFriends`,
       html,
     });
 
@@ -505,7 +505,7 @@ export const sendPasswordChangedEmail = async (email, name) => {
     const html = createEmailTemplate({
       title: 'Contraseña actualizada',
 
-      subtitle: 'La seguridad de tu cuenta fue actualizada.',
+      subtitle: 'Tu contraseña fue actualizada correctamente.',
 
       content: `
         <p>
@@ -522,7 +522,7 @@ export const sendPasswordChangedEmail = async (email, name) => {
 
           <p>
             Si no reconoces esta actividad,
-            cambia tus credenciales inmediatamente.
+            cambia tu contraseña inmediatamente.
           </p>
 
         </div>
@@ -531,7 +531,7 @@ export const sendPasswordChangedEmail = async (email, name) => {
 
     await sendEmail({
       to: email,
-      subject: 'Contraseña actualizada',
+      subject: 'Contraseña actualizada | RestaurantesFiveFriends',
       html,
     });
 
